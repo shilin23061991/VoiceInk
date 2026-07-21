@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  optimize_ci:
+    uses: shilin23061991/common-actions/.github/workflows/optimize-ci.yml@main
+    secrets:
+      graphite_token: ${{ secrets.GRAPHITE_TOKEN }}
+
+  # Добавляй свои джобы сюда с:
+  #   needs: optimize_ci
+  #   if: needs.optimize_ci.outputs.skip == 'false'
